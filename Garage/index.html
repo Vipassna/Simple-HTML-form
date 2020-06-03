@@ -4,19 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gareik's Garage Sale</title>
+    <style>
+        #items{
+            border-collapse: collapse;
+            width: 100%;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #items td, #items th{
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        #items tr:hover{
+            background-color: #ddd;
+        }
+       #items tr:nth-child(even){
+           background-color:whitesmoke;
+       }
+       #items th{
+           padding-top: 12px;
+           padding-bottom: 12px;
+           text-align: left;
+           background-color:grey;
+           color: white;
+       }
+       .row:hover .overlay{
+           opacity: 1;
+       }
+       .image{
+             display: block;
+             margin-left: 25%;
+             margin-right: auto;
+             border: 1px solid gray;
+             padding: 5px;
+       }
+       .image:hover{
+           box-shadow: 0 0 2px 1px slateblue;
+       }
+       
+       .row{
+           float: left;
+           width: 50%;
+       }
+       #sale{
+           background-color: slategrey;
+           font-family: fantasy;
+           font-size:large;
+           font-style: italic;
+           font-feature-settings: "clig";
+           text-align: center;
+           color: white;
+           text-decoration-style: dashed;
+           text-shadow: 2px 2px black;
+       }
+       .container{
+           background-color: white;
+       }
+       
+
+    </style>
 </head>
 <body>
-    <header><h1><i><b>Welcome to Gareik's Garage Sale - 2015</b></i></h1>
+    <div class="container">
+    <header id="sale"><h1><i><b>Welcome to Gareik's Garage Sale - 2015</b></i></h1>
         <p2>The 2015 sale is on and I hope you reach here soon because we have limited vehicles.
             So without waiting head on to my garage sale and I hope to see you soon! </p2><br>
     <h3>Contact No- 7685933019(510 + 6654830)</h3>
     </header>
     <div class="row">
-        <img src="istockphoto-537677833-170667a.jpg" alt="Gareik's Image" width="200"  height="300">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d101249.2908622464!2d-122.08185935371965!3d37.53054635608959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fbf46b7e8caf7%3A0x8ada313b89d888d4!2sFremont%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1590231733244!5m2!1sen!2sin" width="300" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        <img src="istockphoto-537677833-170667a.jpg" alt="Gareik's Image" width="200"  height="300" class="image"></div>
+    <div class="row"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d101249.29086224615!2d-122.08185935371968!3d37.530546356089594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fbf46b7e8caf7%3A0x8ada313b89d888d4!2sFremont%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1591186262696!5m2!1sen!2sin" frameborder="0" style="border:0;"
+         allowfullscreen="" aria-hidden="false" tabindex="0" class="map" width="400" height="300"></iframe>  
     </div>
+
     <div class="table">
-        <table border = "2">
+        <table id="items">
             <tr>
                <th>Image</th>
                <th>Name</th>
@@ -39,7 +100,7 @@
                 <td>1</td>
                 <td>Excellent</td>
             </tr>
-            <tr>
+            <tr class="infinity">
                 <td><img src="infinity FX35.jpg" alt="Infinity" width="100" height="80"</td>
                 <td>Infinity FX35</td>
                 <td>$37,000</td>
@@ -48,7 +109,8 @@
             </tr>
 
     </div>
-
-
+    </div>
 </body>
+
 </html>
+
