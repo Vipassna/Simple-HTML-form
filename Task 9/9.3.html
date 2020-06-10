@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>replace</title>
+</head>
+    
+<body>
+   <p id="demo">Osmosys Software Solutions</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+  var str = document.getElementById("demo").innerHTML; 
+  var res = str.replace(/S/gi, "$");
+  document.getElementById("demo").innerHTML = res;
+}
+</script>
+    
+</body>
+</html>
