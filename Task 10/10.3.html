@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10.3</title>
+</head>
+<body>
+    <script>
+      function count() {
+        var arr = [];
+          for(var i = 0; i < 10; i++){
+              arr.push(prompt("Enter a number"));
+              arr = arr.map(Number);
+              console.log(arr);
+              arr.sort();
+              console.log(arr);
+              }
+             var current = null;
+             var cnt = 0;
+             for (var i = 0; i < array_elements.length; i++) {
+                  if (array_elements[i] != current) {
+                     if (cnt > 0) {
+                console.log(current + ' comes --> ' + cnt + ' times<br>');
+               }
+                  current = array_elements[i];
+                   cnt = 1;
+               } else {
+                 cnt++;
+                }
+            }
+    
+
+       };
+</script>
+
+  
+
+          
+      
