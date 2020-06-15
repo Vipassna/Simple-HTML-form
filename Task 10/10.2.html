@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10.2</title>
+</head>
+<body>
+    <script>
+      var arr = [];
+          for(var i = 0; i < 10; i++){
+              arr.push(prompt("Enter a number"));
+              arr = arr.map(Number);
+              console.log(arr);
+              arr.sort();
+              console.log(arr);
+              }
+                let l = 0;
+                let r = arr.length - 1;
+                var min_l = l;
+                var min_r = r;
+            function sum_zero(arr, l, r){
+               
+                   while(l<r){
+                       var sum = a[l] + a[r];
+                       if(abs(sum) < abs(min_sum)) 
+                           { 
+                             min_sum = sum; 
+                             min_l = l; 
+                             min_r = r; 
+                            } 
+                        if(sum < 0) {
+                           l++; 
+                        }
+                        else{
+                           r--; 
+                          } 
+                        }
+                    };
+                console.log("The elements whose sum is equal to 0 are" + arr[min_l] + '' + arr[min_r]);
+  
+                      
+                
+        
+    </script>
+    
+</body>
+</html>
