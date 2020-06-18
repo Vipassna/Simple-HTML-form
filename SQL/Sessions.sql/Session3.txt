@@ -1,0 +1,268 @@
+FRIENDBOOK :-
+
+SELECT persons.fullname, hobbies.name
+FROM persons
+JOIN hobbies
+ON persons.id = hobbies.person_id;
+
+DATABASE SCHEMA
+persons5 rows
+id (PK)INTEGER
+fullnameTEXT
+ageINTEGER
+hobbies10 rows
+id (PK)INTEGER
+person_idINTEGER
+nameTEXT
+friends2 rows
+id (PK)INTEGER
+person1_idINTEGER
+person2_idINTEGER
+
+QUERY RESULTS
+fullname		name
+Bobby McBobbyFace	drawing
+Bobby McBobbyFace	coding
+Lucy BoBucie		dancing
+Lucy BoBucie		coding
+Banana FoFanna		skating
+Banana FoFanna		rowing
+Banana FoFanna		drawing
+Shish Kabob		coding
+Shish Kabob		dilly-dallying
+Shish Kabob		meowing
+
+
+SELECT a.fullname, b.fullname FROM friends
+JOIN persons a
+ON friends.person1_id = a.id
+JOIN persons b
+ON friends.person2_id = b.id;
+
+fullname		fullname
+Bobby McBobbyFace	Shish Kabob
+Lucy BoBucie		Banana FoFanna
+
+
+SPIN-OFF PROJECT :-
+
+CREATE TABLE stars (id INTEGER PRIMARY KEY,
+    first_name TEXT,
+    last_name TEXT,
+    twitter TEXT,
+    STARmeter TEXT,
+    birthdate TEXT,
+    following_id INTEGER);
+
+INSERT INTO stars (first_name, last_name, twitter , STARmeter, birthdate, following_id)
+    VALUES ("Antonio", "Banderas", "@antoniobanderas", "228", "1960-08-10", 5);
+INSERT INTO stars (first_name, last_name, twitter, STARmeter, birthdate, following_id)
+    VALUES ("Leonardo", "DiCaprio", "@LeoDiCaprio", "38", "1974-11-11", 6);
+INSERT INTO stars (first_name, last_name, twitter, STARmeter, birthdate, following_id)
+    VALUES ("Adam", "Driver", "@AdamDriver83", "14", "1983-11-19", 2);
+INSERT INTO stars (first_name, last_name, twitter, STARmeter, birthdate, following_id)
+    VALUES ("Joaquin", "Phoenix", "@JoPhoenix74", "10", "1974-10-28", 2);
+INSERT INTO stars (first_name, last_name, twitter, STARmeter, birthdate, following_id)
+    VALUES ("Jonathan", "Pryce", "@Pryce47", "179", "1947-06-01", 9);
+INSERT INTO stars (first_name, last_name, twitter, STARmeter, birthdate, following_id)
+    VALUES ("Tom", "Hanks", "@tomhanks", "58", "1956-07-09", 4);
+INSERT INTO stars (first_name, last_name, twitter, STARmeter, birthdate, following_id)
+    VALUES ("Anthony", "Hopkins", "@ahopkins", "317", "1937-12-31", 4);
+INSERT INTO stars (first_name, last_name, twitter, STARmeter, birthdate, following_id)
+    VALUES ("Al", "Pacino", "@alpacino", "123", "1940-04-25", 10);
+INSERT INTO stars (first_name, last_name, twitter, STARmeter, birthdate, following_id)
+    VALUES ("Joe", "Pesci", "@pesci", "178", "1943-02-09", 8);
+INSERT INTO stars (first_name, last_name, twitter, STARmeter, birthdate, following_id)
+    VALUES ("Brad", "Pitt", "@bradpitt", "37", "1963-12-18", 7);
+
+
+CREATE TABLE leading_role (id INTEGER PRIMARY KEY,
+    stars_id INTEGER,
+    movie TEXT,
+    rate INTEGER);
+
+INSERT INTO leading_role (stars_id, movie, rate)
+    VALUES (4, "Joker", 8.6);
+INSERT INTO leading_role (stars_id, movie, rate)
+    VALUES (3, "Marriage Story", 8.1);
+INSERT INTO leading_role (stars_id, movie, rate)
+    VALUES (2, "Once Upon a Time... in Hollywood", 7.8);
+INSERT INTO leading_role (stars_id, movie, rate)
+    VALUES (1, "Pain and Glory", 7.6);
+INSERT INTO leading_role (stars_id, movie, rate)
+    VALUES (5, "The Two Popes", 7.6);
+
+
+CREATE TABLE supporting_role (id INTEGER PRIMARY KEY,
+    stars_id INTEGER,
+    movie TEXT,
+    rate INTEGER);
+
+INSERT INTO supporting_role (stars_id, movie, rate)
+    VALUES (9, "The Irishman", 8.0);
+INSERT INTO supporting_role (stars_id, movie, rate)
+    VALUES (8, "The Irishman", 8.0);
+INSERT INTO supporting_role (stars_id, movie, rate)
+    VALUES (10, "Once Upon a Time... in Hollywood", 7.8);
+INSERT INTO supporting_role (stars_id, movie, rate)
+    VALUES (6, "A Beautiful Day in the Neighborhood", 7.6);
+INSERT INTO supporting_role (stars_id, movie, rate)
+    VALUES (8, "The Two Popes", 7.6);
+
+
+SELECT * FROM stars;
+
+SELECT * FROM leading_role;
+
+SELECT * FROM supporting_role;
+
+/* cross join */
+SELECT * FROM leading_role, stars;
+
+/* implicit inner join */
+SELECT * FROM leading_role, stars
+    WHERE leading_role.stars_id = stars.id;
+    
+SELECT * FROM supporting_role, stars
+    WHERE supporting_role.stars_id = stars.id;
+    
+/* explicit inner join - JOIN */
+SELECT stars.first_name, stars.last_name, stars.twitter, leading_role.movie, leading_role.rate FROM stars
+    JOIN leading_role
+    ON stars.id = leading_role.stars_id
+    WHERE rate > 7.7;
+
+SELECT stars.first_name, stars.last_name, stars.twitter, supporting_role.movie, supporting_role.rate FROM stars
+    JOIN supporting_role
+    ON stars.id = supporting_role.stars_id
+    WHERE rate > 7.7;
+
+DYNAMIC DOCUMENTS :-
+
+UPDATE documents
+SET author ="Jackie Draper"
+WHERE author = "Jackie Paper";
+SELECT * FROM documents;
+
+DATABASE SCHEMA
+documents5 rows
+id (PK)INTEGER
+titleTEXT
+contentTEXT
+authorTEXT
+
+QUERY RESULTS
+id	title		content						author
+1	Fancy Stuff	Ceiling wax, dragon wings, etc.	Puff T.M. 	Dragon
+2	Living Things	They're located in the left ear, you know.	Puff T.M. Dragon
+3	Pirate Recipes	Cherry pie, apple pie, blueberry pie.		Jackie Paper
+4	Boat Supplies	Rudder - guitar. Main mast - bed post.		Jackie Paper
+5	Things I'm Afraid Of	Talking to my parents, the sea,
+ giant pirates, heights.	Jackie Paper
+id	title	content	author
+1	Fancy Stuff	Ceiling wax, dragon wings, etc.	Puff T.M. Dragon
+2	Living Things	They're located in the left ear, you know.	Puff T.M. Dragon
+3	Pirate Recipes	Cherry pie, apple pie, blueberry pie.	Jackie Draper
+4	Boat Supplies	Rudder - guitar. Main mast - bed post.	Jackie Draper
+5	Things I'm Afraid Of	Talking to my parents, the sea, giant pirates, heights.	Jackie Draper
+
+DELETE FROM documents WHERE title = 
+"Things I'm Afraid Of";
+
+SELECT * FROM documents;
+
+id	title			content					author
+1	Fancy Stuff	Ceiling wax, dragon wings, etc.	Puff T.M. 	Dragon
+2	Living Things	They're located in the left ear, you know.	Puff T.M. Dragon
+3	Pirate Recipes	Cherry pie, apple pie, blueberry pie.		Jackie Draper
+4	Boat Supplies	Rudder - guitar. Main mast - bed post.		Jackie Draper
+
+CLOTHING ALTERATIONS :-
+
+ ALTER TABLE clothes ADD price TEXT;
+    SELECT * FROM clothes;
+
+DATABASE SCHEMA
+clothes3 rows
+id (PK)INTEGER
+typeTEXT
+designTEXT
+priceTEXT
+
+QUERY RESULTS
+id	type	design   	price
+1	dress	pink polka dots	NULL
+2	pants	rainbow tie-dye	NULL
+3	blazer	black sequin	NULL
+
+UPDATE clothes SET price = 10 WHERE id = 1;
+UPDATE clothes SET price = 20 WHERE id = 2;
+UPDATE clothes SET price = 30 WHERE id = 3;
+
+ SELECT * from clothes;
+
+QUERY RESULTS
+id	type	design		price
+1	dress	pink polka dots	NULL
+2	pants	rainbow tie-dye	NULL
+3	blazer	black sequin	NULL
+
+id	type	design		price
+1	dress	pink polka dots	10
+2	pants	rainbow tie-dye	20
+3	blazer	black sequin	30
+
+SELECT * from clothes;
+  INSERT INTO clothes (type, design, price) VALUES ( "scarf", "red satin", 40);
+  SELECT * FROM clothes;
+id	type	design		price
+1	dress	pink polka dots	10
+2	pants	rainbow tie-dye	20
+3	blazer	black sequin	30
+4	scarf	red satin	40
+
+SPIN OFF: APP IMPERSONATOR :-
+
+CREATE TABLE Persona (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    First_name TEXT,
+    Last_name text,
+    age INTEGER,
+    address text);
+    
+    CREATE TABLE Hours (
+    Person_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Hrs_sleep integer,
+    Hrs_work INTEGER,
+    Hrs_internet_browse integer,
+    Mood text );
+
+INSERT INTO Persona (First_name, Last_name, age, address) VALUES ("Jen", "Rimona", 45, "568 Mabury square, San Jose, CA 95129");
+
+   
+INSERT INTO Persona (First_name, Last_name, age, address) VALUES ("Dona", "Cherry", 38, "58 Sara lane, Campbell, CA 95134");
+
+INSERT INTO Persona (First_name, Last_name, age, address) VALUES ("Kamelia", "Prada", 31, "132  Washington square, San Jose, CA 95131");
+
+INSERT INTO Persona (First_name, Last_name, age, address) VALUES ("Penny", "DiKaprio", 61, "590 Brook street, Saratoga, CA 95112");
+/*data for Hours table*/
+
+INSERT INTO Hours (Hrs_sleep, Hrs_work, Hrs_internet_browse, Mood) VALUES (5, 2.5,8, "Tired");
+INSERT INTO Hours (Hrs_sleep, Hrs_work, Hrs_internet_browse, Mood) VALUES (6, 9,2, "Energized");
+INSERT INTO Hours (Hrs_sleep, Hrs_work, Hrs_internet_browse, Mood) VALUES (8, 8,5, "Sleepy");
+INSERT INTO Hours (Hrs_sleep, Hrs_work, Hrs_internet_browse, Mood) VALUES (3, 12,1, "Exhausted");
+
+Select * from Hours;
+Select * from Persona;
+select * from Persona where age > 40;
+
+Select * from Persona;
+UPDATE Hours set Mood = "Need more sleep" WHERE Person_id = 1;
+Select * from Hours;
+select * from Persona where address LIKE "%Campbell%";
+
+SELECT * FROM Persona WHERE First_name IN ("Penny", "Jen");
+DELETE FROM Persona WHERE address like "%Campbell%";
+select * from Persona;
+DELETE FROM Persona WHERE age > 40;
+select * from Persona;
