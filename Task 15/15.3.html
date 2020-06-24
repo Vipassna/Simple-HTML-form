@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+   <title>Video Watcher</title>
+    <link rel="stylesheet" type="text/css" href="http://www.teaching-materials.org/common/bootstrap.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style type="text/css">
+      li
+      {
+        width:350px;
+      }
+      .link
+      {
+        position:absolute;
+        top:40px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="container mx-auto">
+      <div class="d-flex justify-content-center my-sm-5">
+        <h2 class="page-header">Best Videos Ever ❤</h1>
+      </div>
+      <div class="d-flex justify-content-center">
+        <ul class= "list-group">
+          <li class="list-group-item"><div  class="d-flex justify-content-start link"><a href="https://www.youtube.com/watch?v=TddFnTB_7IM" class="d-flex justify-content-end">Trip through the 80s</a></div>
+          <div class="d-flex justify-content-end"><img></div></li>
+          <li class="list-group-item"><div  class="d-flex justify-content-start link"><a href="https://www.youtube.com/watch?v=epUk3T2Kfno" class="d-flex justify-content-end">Otters Holding Hands</a></div>
+          <div class="d-flex justify-content-end"><img></div></li>
+          <li class="list-group-item"><div class="d-flex justify-content-start link"><a href="https://www.youtube.com/watch?v=il2IrgFHfsg">The Ooooh Cat</a></div>
+          <div class="d-flex justify-content-end"><img></div></li>
+        </ul>
+       </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://www.teaching-materials.org/common/youtube.js"></script>
+    <script>
+      var x,i;
+      x = document.querySelectorAll("a");
+      y = document.querySelectorAll("img");
+      for(i=0;i<x.length;i++)
+      {
+        console.log(youtube.generateThumbnailUrl(x[i].href));
+        y[i].src = youtube.generateThumbnailUrl(x[i].href);
+      }
+    </script>
+  </body>
+</html>
