@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kidzee</title>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style type="text/css">
+    	body
+    	{
+    		font-family: "Comic Sans MS", cursive, sans-serif;
+    	}
+    	img
+    	{
+    		height: 200px;
+    		width: 200px;
+    		padding:20px;
+    	}
+    	#quesContainer
+    	{
+    		width:600px;
+    		border:1px solid black;
+    		border-radius:20px;
+    		margin-top: 50px;
+    		margin-bottom: 20px;
+    		font-size:25px;
+    		background-color: #4da6ff;
+    	}
+    	#ques
+    	{
+    		margin:10px;
+    		padding:10px;
+    		font-weight:bold;
+    	}
+    	.container
+    	{
+    		padding:20px;
+    	}
+    </style>
+</head>
+<body>
+	<div class="container">
+		<div id="quesContainer" class="mx-auto text-center">
+			<p id="ques"></p>
+		</div>
+		<div>
+			<div class="d-flex justify-content-center">
+				<a><img src="kidimages/cloud.jpg" class="images" id="cloud"></a>
+				<a><img src="kidimages/circle.png" class="images" id="circle"></a>
+				<a><img src="kidimages/crow.png" class="images" id="crow"></a>
+				<a><img src="kidimages/rectangle.png" class="images" id="rectangle"></a>
+			</div>
+			<div class="d-flex justify-content-center">
+				<a><img src="kidimages/tree.jpg" class="images" id="tree"></a>
+				<a><img src="kidimages/triangle.png" class="images" id="triangle"></a>
+				<a><img src="kidimages/flower.jpg" class="images" id="flower"></a>
+			</div>
+			<div class="alert alert-success text-center" role="alert" style="display:none;" id="correct">
+				<h4 class="alert-heading">Correct!!</h4>
+			</div>
+			<div class="alert alert-danger text-center" role="alert" style="display:none;" id="wrong">
+				<h4 class="alert-heading">Incorrect, Try again...</h4>
+			</div>
+			<div class="alert alert-success text-center" role="alert" style="display:none;" id="star">
+			  <h4 class="alert-heading">Well done!</h4>
+			  <p>You have completed the quiz, here is a star for you.</p>
+			  <hr>
+			  <div class="d-flex justify-content-center">
+			  	<img src="kidimages/star.png" height="100" width="100">
+			  </div>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		var questions = ["Click on a circle shaped object.", "Click on a rectangle shaped object.","Click on a triangle shaped object.","Click on a cloud.","Click on a flower plant.","Click on a tree.","Click on the crow."];
+		var qtags = ["circle","rectangle","triangle","cloud","flower","tree","crow"];
+		var randPos;
+		var randQues;
+		var ans;
+		function randQues()
+		{
+			randPos = Math.floor(Math.random() * questions.length);
+			randQues = questions.splice(randPos, 1);
+			ans = qtags.splice(randPos,1);
+			$("#ques").html(randQues);
+		}
+		randQues();
+		$("img").click(function(e){
+			if($(e.target).is("#"+ans))
+			{
+				randPos = Math.floor(Math.random() * questions.length);
+				randQues = questions.splice(randPos, 1);
+				ans = qtags.splice(randPos,1);
+				$("#ques").html(randQues);
+				$("#wrong").hide();
+				$("#correct").show();
+			}
+			else
+			{
+				$("#correct").hide();
+				$("#wrong").show();
+			}
+			if(questions.length == 0)
+			{
+				$("#ques").html("YAY, You're are done!")
+				$("#star").show();
+			}
+		});
+		
+
+	</script>
+</body>
+</html>
