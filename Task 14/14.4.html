@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    const data = `{
+    "audio" : [
+        "audio1.mp3",
+        "Thesong.mp3",
+        "Mysong.mp3",
+        "Happy.mp3"
+    ],
+    "video": [
+        "Trip.mp4",
+        "Happy family.mkv",
+        "nice.flv",
+        "sad songs.webm"
+    ],
+    "document": [
+        "text.txt",
+        "studyfile.pdf",
+        "assignment1.pdf",
+        "assignment2.pdf",
+        "test1.xls",
+        "test5.pdf"
+     ],
+    "image" : [
+        "image1.png",
+        "image2.jpg",
+        "image3.png",
+        "image4.jpg",
+        "image5.png"
+    ]
+}`
+console.log(data);
+const patterns = {
+    audio:/^[\w]+\.\w{3, }$/,
+    video:/^[\w]+\.\w{3,}$/,
+    document:/^[\w]+\.\w{3,}$/,
+    image:/^[\w]+\.\w{3,}$/
+};
+
+function validate(data,regex){
+    console.log(regex.test);
+
+}
+</script>
+
+<body>
+    
+</body>
+</html>
