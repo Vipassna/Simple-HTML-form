@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rally Motors</title>
+    <style>
+    div.form
+     {
+    display: block;
+    text-align: center;
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+     }
+    form
+    {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+     }
+     input[type=text], input[type=tel], select {
+     width: 100%;
+     padding: 12px 20px;
+     margin: 8px 0;
+     display: inline-block;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     box-sizing: border-box;
+     }
+     button {
+     width: 100%;
+     background-color: #ed65a0;
+     color: white;
+     padding: 14px 20px;
+     margin: 8px 0;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+     border: 2px #eeaeca;
+     text-align: center;
+     text-decoration: none;
+     font-size: 16px;
+         
+     }
+     h1{
+         font-family: Arial, Helvetica, sans-serif;
+         font-weight: bold;
+         color: #c81060;
+     }
+     div label{
+         color: #c81060;
+         font-family: Arial, Helvetica, sans-serif;
+         font-weight: bold;
+     }
+     textarea{
+         border: 4px #c81060 solid;
+         width: 100%;
+     }
+
+    </style>
+</head>
+<body>
+    
+    <div class="form">
+        <form name="myform" action="insert.php" method="get">
+        <h1>Rally Motors: We care for your car</h1>
+        <div class="first">
+            <p class="note" style="color: red;">Fields marked with * are required.</p>
+            <label>First Name:*</label>
+            <input type="text"  placeholder="Enter your first name" id="firstname" pattern="[a-zA-Z]+" name="firstname">
+        </div><br>
+        <div class="last">
+            <label>Last Name:*</label>
+            <input type="text"  placeholder="Enter your last name" id="lastname" pattern="[a-zA-Z]+" name="lastname"> 
+        </div><br>
+        <div class="email">
+            <label>E-mail:*</label>
+        <input type="text" placeholder="Enter your email id" id="emailaddress" pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$" name="email">
+        </div><br>
+        <div class="contact">
+            <label>Contact No.*</label>
+            <input type="tel" id="contactno" name="contactno">
+        </div><br>
+        <div class="make">
+            <label>Make:*</label>
+            <select>
+                <option selected hidden>Choose the car company</option>
+                <option value="1">Maruti</option>
+                <option value="2">TATA</option>
+                <option value="3">Chevrolet</option>
+                <option value="4">Toyota</option>
+            </select>
+        </div><br>
+        <div class="model">
+            <label>Model:*</label>
+               <select>
+               <optgroup label="Maruti">
+               <option selected hidden>Choose the model</option>
+               <option>800 (1995)</option>>
+               <option>Alto (2000)</option>
+               <option>WagonR (2002)</option>>
+               <option>Esteem (2004)</option>
+               <option>SX4 (2007)</option>
+               </optgroup>
+               
+           
+           <optgroup label="TATA">
+               <option>Indica</option>
+               <option>Indigo</option>
+               <option>Safari</option>
+               <option>Sumo</option>
+           
+           </optgroup>
+           <optgroup label="Chevrolet">
+               <option>Beat (2006)</option>
+               <option>Travera (2002)</option>
+               <option>Spark (2007)</option>
+           </optgroup>
+           <optgroup label="Toyota">
+               <option>Camry (2005)</option>
+               <option>Etios (2010)</option>
+               <option>Corolla (2003)</option>
+               <option>Endaevour (2008)</option>
+            </optgroup>
+           </select>
+        </div><br>
+        <div id="year">
+            <label>Year:*</label>
+            <select name="year" id="yearofcar">
+                <option selected hidden>Year</option>
+                <option value="1">1995</option>
+                <option value="2">1996</option>
+                <option value="3">1997</option>
+                <option value="4">1998</option>
+                <option value="5">1999</option>
+                <option value="6">2000</option>
+                <option value="7">2001</option>
+                <option value="8">2002</option>
+                <option value="9">2003</option>
+                <option value="10">2004</option>
+                <option value="11">2005</option>
+                <option value="12">2006</option>
+                <option value="13">2007</option>
+                <option value="14">2008</option>
+                <option value="15">2009</option>
+                <option value="16">2010</option>
+                <option value="17">2011</option>
+                <option value="18">2012</option>
+                <option value="19">2013</option>
+                <option value="20">2014</option>
+                <option value="21">2015</option>
+                <option value="22">2016</option>
+                <option value="23">2017</option>
+                <option value="24">2018</option>
+                <option value="25">2019</option>
+                <option value="26">2020</option>
+            </select>
+        </div><br>
+        <div class="color">
+            <label>Colour:*</label>
+            <select name="colour" id="colour">
+            <option selected hidden>Colour</option>
+            <option value="1">Black</option>
+            <option value="2">Blue</option>
+            <option value="3">Dark Blue</option>
+            <option value="4">Steel Grey</option>
+            <option value="5">Matte grey</option>
+            <option value="6">Matte red</option>
+            <option value="7">Matte blue</option>
+            <option value="8">Matte black</option>
+            <option value="9">Red</option>
+            <option value="10">Cherry red</option>
+            </select>
+        </div><br>
+        <div class="problem">
+            <label>Problem:*</label>
+            <textarea id ="text" rows="3" cols="10">Enter your problem here</textarea>
+        </div>
+        <div id="submit">
+            <button type="submit" value="submit">Submit</button> 
+            <span id="success_message" class="success"></span>
+            <span id="error_message" class="failure"></span>
+        </div>
+        </form>
+    </div>
+    <script type="script" src="jquery-3.5.1.js"></script>
+    <script type="script" src="jquery-ui/jquery-ui.js"></script>
+    <script type="script" src="jquery-ui.structure.css"></script>
+    <script>
+    $(document).ready(function(){
+        $("#submit").click(function(){
+            var first = $("#firstname").val();
+            var last = $("#lastname").val();
+            var email = $("#emailaddress").val();
+            var phone = $("#contactno").val();
+            var year = $("#yearofcar").val();
+            var prob = $("#text").val();
+
+            if(first == '' || last == '' || email == '' || phone == '' || year == '' || prob == ''){
+                $("#error_message").html("All fields are required");
+            }
+            else{
+                $("#error_message").html('');
+                $.ajax({
+                    url:"insert.php",
+                    method:"POST",
+                    data:{first:firstname, last:lastname,email:emailaddress,phone:contactno,year:yearofcar,prob:text},
+                    success:function(data) {
+                        $("myform").trigger("reset");
+                        $('#success_message').fadeIn.html(data);
+                        setTimeOut(function(){
+                                $("#success_message").fadeOut('slow');
+                            } , 5000000);
+                    
+                    }
+                });
+                }
+        });
+
+    });
+    </script>
+</body>
+</html>
