@@ -66,7 +66,7 @@
 <body>
     
     <div class="form">
-        <form name="myform" action="insert.php" method="get">
+        <form name="myform" action="insert.php" method="post">
         <h1>Rally Motors: We care for your car</h1>
         <div class="first">
             <p class="note" style="color: red;">Fields marked with * are required.</p>
@@ -187,11 +187,12 @@
         </div>
         </form>
     </div>
-    <script type="script" src="jquery-3.5.1.js"></script>
+    <script type="script" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="script" src="jquery-ui/jquery-ui.js"></script>
     <script type="script" src="jquery-ui.structure.css"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script>
-    $(document).ready(function(){
         $("#submit").click(function(){
             var first = $("#firstname").val();
             var last = $("#lastname").val();
@@ -220,8 +221,6 @@
                 });
                 }
         });
-
-    });
-    </script>
+    </script>   
 </body>
 </html>
